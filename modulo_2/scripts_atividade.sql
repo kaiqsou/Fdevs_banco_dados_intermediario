@@ -26,18 +26,20 @@ ADD CONSTRAINT FK_Produto_ProdutoCategoria
 FOREIGN KEY (categoria_id) REFERENCES produto_categoria(id_categoria);
 
 -- Adicionando CATEGORIAS
-INSERT INTO produto_categoria(id_categoria, nome) VALUES(1, 'Tecnologia');
-INSERT INTO produto_categoria(id_categoria, nome) VALUES(2, 'Alimento');
-INSERT INTO produto_categoria(id_categoria, nome) VALUES(3, 'Roupas');
-INSERT INTO produto_categoria(id_categoria, nome) VALUES(4, 'Acessórios');
+INSERT INTO produto_categoria(id_categoria, nome) VALUES
+	(1, 'Tecnologia'),
+	(2, 'Alimento'),
+	(3, 'Roupas'),
+	(4, 'Acessórios');
 
 -- Adicionando ESTOQUES
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(1, 3);
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(2, 7);
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(3, 12);
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(4, 1);
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(5, 15);
-INSERT INTO produto_estoque(produto_id, quantidade) VALUES(6, 3);
+INSERT INTO produto_estoque(produto_id, quantidade) VALUES
+	(1, 3), -- Smartphone
+	(2, 7), -- Café
+	(3, 12), -- Computador
+	(4, 1), -- Relógio
+	(5, 15), -- Açúcar
+	(6, 3); -- Teclado
 
 -- Atualizando as categorias dos PRODUTOS
 SELECT * FROM produto;
@@ -66,11 +68,9 @@ INNER JOIN produto_estoque e ON e.produto_id = p.id_produto
 ORDER BY 1;
 
 -- 2. Escreva uma instrução SQL para excluir todos os produtos da categoria 'Roupas' da tabela PRODUTO.
-INSERT INTO produto(id_produto, nome, valor_custo, valor_venda, categoria_id)
-VALUES(7, 'Moletom', 60, 150, 3);
-
-INSERT INTO produto(id_produto, nome, valor_custo, valor_venda, categoria_id)
-VALUES(8, 'Cachecol', 50, 100, 3);
+INSERT INTO produto(id_produto, nome, valor_custo, preco_venda, categoria_id) VALUES
+	(7, 'Moletom', 60, 150, 3),
+	(8, 'Cachecol', 50, 100, 3);
 
 SELECT * FROM produto;
 
@@ -89,17 +89,11 @@ CREATE TABLE clientes
 	ultimo_nome VARCHAR(100)
 );
 
-INSERT INTO clientes(id_cliente, titulo, primeiro_nome, nome_meio, ultimo_nome)
-VALUES(1, 'Veríssimo', 'Kaique', 'Onencio', 'de Souza'); 
-
-INSERT INTO clientes(id_cliente, titulo, primeiro_nome, nome_meio, ultimo_nome)
-VALUES(2, 'Majestade', 'Marina', NULL, 'Frankin'); 
-
-INSERT INTO clientes(id_cliente, titulo, primeiro_nome, nome_meio, ultimo_nome)
-VALUES(3, NULL, 'Bernardo', NULL, NULL); 
-
-INSERT INTO clientes(id_cliente, titulo, primeiro_nome, nome_meio, ultimo_nome)
-VALUES(4, NULL, NULL, NULL, 'Oczkowski'); 
+INSERT INTO clientes(id_cliente, titulo, primeiro_nome, nome_meio, ultimo_nome)VALUES
+	(1, 'Veríssimo', 'Kaique', 'Onencio', 'de Souza'), 
+	(2, 'Majestade', 'Marina', NULL, 'Frankin'),
+	(3, NULL, 'Bernardo', NULL, NULL),
+	(4, NULL, NULL, NULL, 'Oczkowski');
 
 SELECT * FROM clientes;
 
